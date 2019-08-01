@@ -45,8 +45,12 @@ public class MainWindowController implements Initializable {
 //        tableView.setPrefHeight();
 
         TableColumn iconColumn = new TableColumn("Icon");
+        iconColumn.setMaxWidth(500);
         TableColumn nameColumn = new TableColumn("Name");
         TableColumn sizeColumn = new TableColumn("Size");
+        sizeColumn.setMaxWidth(900);
+        TableColumn modifiedColumn = new TableColumn("Modified");
+        modifiedColumn.setMaxWidth(1000);
 
         fileList.setRowFactory(tableView -> {
             TableRow row = new TableRow();
@@ -90,7 +94,8 @@ public class MainWindowController implements Initializable {
         iconColumn.setCellValueFactory(new PropertyValueFactory<PathItem, ImageView>("icon"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<PathItem, String>("name"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<PathItem, String>("size"));
-        fileList.getColumns().addAll(iconColumn, nameColumn, sizeColumn);
+        modifiedColumn.setCellValueFactory(new PropertyValueFactory<PathItem, String>("modified"));
+        fileList.getColumns().addAll(iconColumn, nameColumn, sizeColumn, modifiedColumn);
 
 //        data.addAll(
 //                new PathItem(folderImage, "folder1", "1.1Mb"),
@@ -141,7 +146,8 @@ public class MainWindowController implements Initializable {
                 try {
                     var icon = Files.isDirectory(p) ? folderImage : fileImage;
                     var size = Files.isDirectory(p) && Files.isReadable(p) ? getFolderSize(p) : Files.size(p);
-                    data.add(new PathItem(icon, p.getFileName().toString(), size));
+                    var modified = Files.getLastModifiedTime(p);
+                    data.add(new PathItem(icon, p.getFileName().toString(), size, modified));
                 } catch (AccessDeniedException e) {
                     System.out.println("Access denied in " + p);
                 } catch (IOException e) {
