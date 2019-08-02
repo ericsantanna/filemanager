@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -28,7 +29,7 @@
       <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
    </padding>
    <top>
-      <VBox prefHeight="80.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="80.0" spacing="3.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="40.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="3.0">
@@ -36,11 +37,12 @@
                   <Button fx:id="upBtn" mnemonicParsing="false" onAction="#onUp" text="Up" />
                   <TextField fx:id="addressBar" HBox.hgrow="ALWAYS" />
                </children>
-               <padding>
-                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-               </padding>
             </HBox>
+            <ProgressBar fx:id="mainProgressBar" maxHeight="6.0" maxWidth="1.7976931348623157E308" prefHeight="6.0" progress="0.0" />
          </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
       </VBox>
    </top>
 </BorderPane>

@@ -5,6 +5,7 @@ module com.ericsantanna.filemanager.gui {
     requires java.desktop;
     exports com.ericsantanna.filemanager.main;
     exports com.ericsantanna.filemanager.mainWindow;
+    exports com.ericsantanna.filemanager.models;
     opens com.ericsantanna.filemanager.mainWindow;
     opens com.ericsantanna.filemanager.models;
 }

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.math.RoundingMode;
+import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -11,16 +12,24 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class PathItem {
+    private Path path;
     private Image icon;
-    private String name;
     private long size;
     private FileTime modified;
 
-    public PathItem(Image icon, String name, long size, FileTime modified) {
+    public PathItem(Image icon, Path path, long size, FileTime modified) {
         this.icon = icon;
-        this.name = name;
+        this.path = path;
         this.size = size;
         this.modified = modified;
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path = path;
     }
 
     public void setIcon(Image icon) {
@@ -28,11 +37,7 @@ public class PathItem {
     }
 
     public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return path.getFileName().toString();
     }
 
     public String getSize() {
