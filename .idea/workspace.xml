@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="064d3b3d-6479-4478-ad07-fdcff578aeb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/FileListingTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,11 +25,11 @@
           <provider editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="105" column="85" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="85" />
+            <state relative-caret-position="1680">
+              <caret line="112" column="41" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.sdkman/candidates/java/12.0.2-open/lib/src.zip!/java.desktop/java/awt/Toolkit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
+            <state relative-caret-position="13800">
               <caret line="998" column="25" selection-start-line="998" selection-start-column="25" selection-end-line="998" selection-end-column="25" />
             </state>
           </provider>
@@ -54,12 +49,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/FileListingTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="375">
               <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1960#1961#0" expanded="true" />
-                <element signature="e#2000#2001#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,16 +61,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="375">
               <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
                 <element signature="e#722#723#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
-                <element signature="e#787#788#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
                 <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#946#947#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,13 +86,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="89">
               <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -113,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#768#769#0" expanded="true" />
@@ -182,6 +173,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -232,6 +225,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="filemanager" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="filemanager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="filemanager" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="filemanager" type="462c0819:PsiDirectoryNode" />
               <item name="mainWindow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -255,8 +258,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,10 +272,10 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.16068377" />
     <property name="project.structure.side.proportion" value="0.37358817" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -337,7 +338,8 @@
       <updated>1564664719120</updated>
       <workItem from="1564664720584" duration="5535000" />
       <workItem from="1564671663468" duration="18787000" />
-      <workItem from="1564750060115" duration="12259000" />
+      <workItem from="1564750060115" duration="12330000" />
+      <workItem from="1566218510608" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="Added modified column">
       <created>1564689787314</created>
@@ -346,17 +348,23 @@
       <option name="project" value="LOCAL" />
       <updated>1564689787314</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added adding clipboard capabilities">
+      <created>1564770660534</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564770660534</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36581000" />
+    <option name="totallyTimeSpent" value="36990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18981738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.192031" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -364,7 +372,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297414" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39200863" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39200863" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -373,7 +381,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3297414" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32289416" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -393,7 +401,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Added modified column" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added modified column" />
+    <MESSAGE value="Added adding clipboard capabilities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added adding clipboard capabilities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -424,32 +433,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java" />
-    <entry file="file://$PROJECT_DIR$/gui/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/12.0.2/javafx-graphics-12.0.2-linux.jar!/javafx/concurrent/Task.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -457,45 +440,6 @@
           <folding>
             <element signature="e#10855#10856#0" expanded="true" />
             <element signature="e#10918#10919#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/src/main/java/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/FileListingTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1960#1961#0" expanded="true" />
-            <element signature="e#2000#2001#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -525,20 +469,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="jar://$USER_HOME$/.sdkman/candidates/java/12.0.2-open/lib/src.zip!/java.desktop/java/awt/Toolkit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="13800">
           <caret line="998" column="25" selection-start-line="998" selection-start-column="25" selection-end-line="998" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/FileListingTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/main/java/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/MainWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="105" column="85" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="85" />
+        <state relative-caret-position="1680">
+          <caret line="112" column="41" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
         </state>
       </provider>
     </entry>
