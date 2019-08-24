@@ -1,4 +1,4 @@
-package com.ericsantanna.filemanager.mainWindow;
+package com.ericsantanna.filemanager.controllers;
 
 import com.ericsantanna.filemanager.models.PathItem;
 import javafx.collections.ObservableList;

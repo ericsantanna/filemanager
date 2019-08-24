@@ -1,12 +1,15 @@
-package com.ericsantanna.filemanager.mainWindow;
+package com.ericsantanna.filemanager.controllers;
 
 import com.ericsantanna.filemanager.models.PathItem;
+import com.ericsantanna.filemanager.utils.FxmlUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -14,10 +17,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
-import lombok.Getter;
+import javafx.stage.Stage;
 
 import java.awt.*;
-import java.awt.datatransfer.Transferable;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -31,14 +33,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-@Getter
 public class MainWindowController implements Initializable {
 //    private Property<Path> pathProperty = new SimpleObjectProperty<>();
-    @FXML private Button upBtn;
     @FXML private TextField addressBar;
     @FXML private ScrollPane fileView;
     @FXML private TableView fileList;
-    @FXML private ProgressBar mainProgressBar;
+    @FXML private ProgressBar prgsBarMain;
 
     private final ObservableList<PathItem> data = FXCollections.observableArrayList();
     private ExecutorService executorService = Executors.newFixedThreadPool(4);
@@ -46,7 +46,7 @@ public class MainWindowController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 //        String homeDir = System.getProperty("user.home");
-        String homeDir = "/home/esantanna/projects/icd-file-processor/icd6";
+        String homeDir = "/tmp";
 //        this.addressBar.textProperty().addListener();
 //        addressBar.textProperty().bindBidirectional(pathProperty, Bindings.createStringBinding(() -> {return null;}));
 //        Bindings.createStringBinding(addressBar.textProperty(), pathProperty, new Format() {
@@ -71,7 +71,7 @@ public class MainWindowController implements Initializable {
         Path currentPath = Paths.get(addressBar.getText());
         data.clear();
         var fileListingTask = new FileListingTask(currentPath, data);
-        mainProgressBar.progressProperty().bind(fileListingTask.progressProperty());
+        prgsBarMain.progressProperty().bind(fileListingTask.progressProperty());
 //        Future<PathItem> future = (Future<PathItem>) executorService.submit(fileListingTask);
 
 //        tableView.setPrefHeight();
@@ -227,16 +227,26 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    public void onUp(ActionEvent event) {
+    public void onUp() {
         var path = Paths.get(addressBar.getText()).getParent();
         addressBar.setText(path.toString());
         addressBar.fireEvent(new ActionEvent());
     }
 
+    @FXML
+    public void onNewFolder() throws Exception {
+        Parent fxml = FxmlUtils.loadFxml("/fxml/mainWindow/new-folder.fxml");
+        Scene scene = new Scene(fxml, 400, 200);
+        Stage stage = new Stage();
+        stage.setTitle("New folder");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void listPaths(String path) throws Exception {
 
         var fileListingTask = new FileListingTask(Paths.get(path), data);
-        mainProgressBar.progressProperty().bind(fileListingTask.progressProperty());
+        prgsBarMain.progressProperty().bind(fileListingTask.progressProperty());
         executorService.submit(fileListingTask);
     }
 }

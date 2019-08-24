@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ericsantanna.filemanager.mainWindow.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ericsantanna.filemanager.controllers.MainWindowController">
    <center>
       <ScrollPane fx:id="fileView" fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
@@ -34,11 +34,12 @@
             <HBox prefHeight="40.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="3.0">
                <children>
-                  <Button fx:id="upBtn" mnemonicParsing="false" onAction="#onUp" text="Up" />
+                  <Button mnemonicParsing="false" onAction="#onUp" text="Up" />
                   <TextField fx:id="addressBar" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#onNewFolder" text="New Folder" />
                </children>
             </HBox>
-            <ProgressBar fx:id="mainProgressBar" maxHeight="6.0" maxWidth="1.7976931348623157E308" prefHeight="6.0" progress="0.0" />
+            <ProgressBar fx:id="prgsBarMain" maxHeight="6.0" maxWidth="1.7976931348623157E308" prefHeight="6.0" progress="0.0" />
          </children>
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
