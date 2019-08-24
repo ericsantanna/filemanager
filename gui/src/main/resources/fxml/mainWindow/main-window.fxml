@@ -36,7 +36,8 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#onUp" text="Up" />
                   <TextField fx:id="addressBar" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#onNewFolder" text="New Folder" />
+                  <Button mnemonicParsing="false" onAction="#onNewFolder" text="New folder" />
+                  <Button mnemonicParsing="false" onAction="#onNewFile" text="New file" />
                </children>
             </HBox>
             <ProgressBar fx:id="prgsBarMain" maxHeight="6.0" maxWidth="1.7976931348623157E308" prefHeight="6.0" progress="0.0" />

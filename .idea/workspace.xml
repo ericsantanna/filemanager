@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="064d3b3d-6479-4478-ad07-fdcff578aeb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/NewFolderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/utils/FxmlUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/new-folder.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dummy.java" afterDir="false" />
+    <list default="true" id="064d3b3d-6479-4478-ad07-fdcff578aeb7" name="Default Changelist" comment="gitignore">
+      <change afterPath="$PROJECT_DIR$/config.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/Controller.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/FileListingTask.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/MainWindowController.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/NewFileController.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/NewFolderController.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/main/Main.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/models/ClipboardState.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/models/PathItem.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/ClipboardService.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/utils/FileManagerDataFormat.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/utils/FxmlUtils.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/new-file.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/newfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controls/controls.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/FileListingTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/FileListingTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/mainWindow/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/main-window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/FileListingTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/MainWindowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/NewFolderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/models/PathItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/utils/FxmlUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/main-window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/new-folder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/new-folder.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/target/classes/fxml/mainWindow/mainWindow.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gui/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -59,25 +73,29 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow/mainWindow.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.16068377" />
     <property name="project.structure.side.proportion" value="0.37358817" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
       <recent name="$PROJECT_DIR$/gui/src/main/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ericsantanna.filemanager.controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -133,7 +151,7 @@
       <workItem from="1566218510608" duration="452000" />
       <workItem from="1566333338736" duration="4832000" />
       <workItem from="1566651730609" duration="609000" />
-      <workItem from="1566652364725" duration="3316000" />
+      <workItem from="1566652364725" duration="34265000" />
     </task>
     <task id="LOCAL-00001" summary="Added modified column">
       <created>1564689787314</created>
@@ -149,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564770660534</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working before changes">
+      <created>1566655979688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566655979688</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,25 +198,31 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Added modified column" />
     <MESSAGE value="Added adding clipboard capabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added adding clipboard capabilities" />
+    <MESSAGE value="Working before changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working before changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
+          <url>file://$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
           <line>185</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
+          <url>file://$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
           <line>91</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gui/src/main/java/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
+          <url>file://$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers/MainWindowController.java</url>
           <line>89</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/ClipboardService.groovy</url>
+          <line>121</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

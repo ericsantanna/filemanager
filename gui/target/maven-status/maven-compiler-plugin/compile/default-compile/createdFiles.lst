@@ -1,0 +1,6 @@
+module-info.class
+com/ericsantanna/filemanager/mainWindow/MainWindowController.class
+com/ericsantanna/filemanager/models/PathItem.class
+com/ericsantanna/filemanager/mainWindow/FileListingTask.class
+com/ericsantanna/filemanager/main/Main.class
+com/ericsantanna/filemanager/mainWindow/FileListingTask$FolderSizeChecker.class
