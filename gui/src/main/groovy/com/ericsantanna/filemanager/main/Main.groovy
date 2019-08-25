@@ -10,7 +10,7 @@ import javafx.stage.Stage
 class Main extends Application {
     @Override
     void start(Stage stage) throws Exception {
-        def fxml = FxmlUtils.loadFxml("/fxml/mainWindow/main-window.fxml")
+        def fxml = FxmlUtils.loadFxml("/com/ericsantanna/filemanager/views/mainWindow/main-window.fxml")
         Scene scene = new Scene(fxml.node, 800, 600)
         stage.setOnCloseRequest({
             Platform.exit()

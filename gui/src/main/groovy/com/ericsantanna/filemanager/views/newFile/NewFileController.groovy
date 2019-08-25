@@ -1,5 +1,6 @@
-package com.ericsantanna.filemanager.controllers
+package com.ericsantanna.filemanager.views.newFile
 
+import com.ericsantanna.filemanager.controllers.Controller
 import javafx.application.Platform
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -26,6 +27,7 @@ class NewFileController extends Controller implements Initializable {
         Files.createFile(currentPath.resolve(newFileName.text))
         closeWindow(event)
     }
+
     @FXML
     void onCancel(ActionEvent event) {
         closeWindow(event)

@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ericsantanna.filemanager.controllers.NewFolderController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ericsantanna.filemanager.views.newFile.NewFileController">
    <bottom>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -26,8 +25,8 @@
    <center>
       <VBox prefWidth="100.0" spacing="3.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Folder name" />
-            <TextField fx:id="newFolderName" minWidth="300.0" prefWidth="600.0" />
+            <Label text="File name" />
+            <TextField fx:id="newFileName" minWidth="300.0" prefWidth="600.0" />
          </children>
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

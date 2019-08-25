@@ -1,20 +1,17 @@
-package com.ericsantanna.filemanager.controllers
+package com.ericsantanna.filemanager.views.mainWindow
 
+import com.ericsantanna.filemanager.controllers.FileListingTask
+import com.ericsantanna.filemanager.views.newFile.NewFileController
+import com.ericsantanna.filemanager.views.newFolder.NewFolderController
 import com.ericsantanna.filemanager.models.PathItem
 import com.ericsantanna.filemanager.services.ClipboardService
-import com.ericsantanna.filemanager.utils.FileManagerDataFormat
 import com.ericsantanna.filemanager.utils.FxmlUtils
-import com.sun.javafx.PlatformUtil
 import javafx.beans.value.ChangeListener
-import javafx.beans.value.ObservableValue
 import javafx.collections.FXCollections
-import javafx.collections.ListChangeListener
 import javafx.collections.ObservableList
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.fxml.FXMLLoader
 import javafx.fxml.Initializable
-import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
@@ -24,15 +21,12 @@ import javafx.stage.Modality
 import javafx.stage.Stage
 
 import java.awt.*
-import java.nio.ByteBuffer
-import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.List
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import java.util.stream.Collectors
 
 class MainWindowController implements Initializable {
     @FXML private TextField addressBar
@@ -216,7 +210,7 @@ class MainWindowController implements Initializable {
 
     @FXML
     void onNewFolder() throws Exception {
-        def fxml = FxmlUtils.loadFxml("/fxml/mainWindow/new-folder.fxml")
+        def fxml = FxmlUtils.loadFxml("/com/ericsantanna/filemanager/views/newFolder/new-folder.fxml")
         def scene = new Scene(fxml.node, 400, 200)
         def stage = new Stage()
         stage.title = "New folder"
@@ -234,7 +228,7 @@ class MainWindowController implements Initializable {
 
     @FXML
     void onNewFile() throws Exception {
-        def fxml = FxmlUtils.loadFxml("/fxml/mainWindow/new-file.fxml")
+        def fxml = FxmlUtils.loadFxml("/com/ericsantanna/filemanager/views/newFile/new-file.fxml")
         def scene = new Scene(fxml.node, 400, 200)
         def stage = new Stage()
         stage.title = "New file"

@@ -22,8 +22,8 @@ class FileListingTask extends Task<Void> {
     @Override
     protected Void call() throws Exception {
         try {
-            Image fileImage = new Image(getClass().getResource("/fxml/mainWindow/txt.jpeg").toString())
-            Image folderImage = new Image(getClass().getResource("/fxml/mainWindow/folder.png").toString())
+            Image fileImage = new Image(getClass().getResource("/fxml/images/txt.jpeg").toString())
+            Image folderImage = new Image(getClass().getResource("/fxml/images/folder.png").toString())
             updateProgress(-1, 0)
             data.clear()
             Files.list(path).forEach( { p ->

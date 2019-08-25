@@ -1,5 +1,6 @@
-package com.ericsantanna.filemanager.controllers
+package com.ericsantanna.filemanager.views.newFolder
 
+import com.ericsantanna.filemanager.controllers.Controller
 import javafx.application.Platform
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -26,6 +27,7 @@ class NewFolderController extends Controller implements Initializable {
         Files.createDirectories(currentPath.resolve(newFolderName.text))
         closeWindow(event)
     }
+
     @FXML
     void onCancel(ActionEvent event) {
         closeWindow(event)
