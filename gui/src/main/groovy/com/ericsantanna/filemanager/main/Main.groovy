@@ -3,7 +3,6 @@ package com.ericsantanna.filemanager.main
 import com.ericsantanna.filemanager.utils.FxmlUtils
 import javafx.application.Application
 import javafx.application.Platform
-import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 

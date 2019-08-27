@@ -167,4 +167,8 @@ class ClipboardService {
 
         Clipboard.systemClipboard.content = clipboardContent
     }
+
+    boolean hasContentPastable() {
+        Clipboard.systemClipboard.hasContent(FileManagerDataFormat.GNOME_COPIED_FILES) || Clipboard.systemClipboard.hasFiles()
+    }
 }

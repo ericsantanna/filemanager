@@ -6,6 +6,9 @@ import com.ericsantanna.filemanager.views.newFolder.NewFolderController
 import com.ericsantanna.filemanager.models.PathItem
 import com.ericsantanna.filemanager.services.ClipboardService
 import com.ericsantanna.filemanager.utils.FxmlUtils
+import javafx.beans.binding.Bindings
+import javafx.beans.property.BooleanProperty
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.value.ChangeListener
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
@@ -38,6 +41,8 @@ class MainWindowController implements Initializable {
 
     private final ObservableList<PathItem> data = FXCollections.observableArrayList()
     private ExecutorService executorService = Executors.newFixedThreadPool(4)
+    private ContextMenu contextMenuTable
+    private BooleanProperty pastable = new SimpleBooleanProperty(false)
 
     @FXML
     void initialize(URL location, ResourceBundle resources) {
@@ -46,7 +51,7 @@ class MainWindowController implements Initializable {
 
         addressBar.setText(homeDir)
 
-        Path currentPath = Paths.get(addressBar.getText())
+        Path currentPath = Paths.get(addressBar.text)
         data.clear()
         FileListingTask fileListingTask = new FileListingTask(currentPath, data)
         prgsBarMain.progressProperty().bind(fileListingTask.progressProperty())
@@ -84,12 +89,38 @@ class MainWindowController implements Initializable {
             }
         })
 
-        def contextMenuTable = new ContextMenu()
+        contextMenuTable = new ContextMenu()
         contextMenuTable.minWidth = 300d
         contextMenuTable.prefWidth = 500
         contextMenuTable.width = 300d
         contextMenuTable.style = '-fx-pref-width: 200'
-        updateMenu(contextMenuTable, Paths.get(addressBar.text), null)
+//        updateMenu(contextMenuTable, null, Paths.get(addressBar.text), null)
+        def menuItemNew = new Menu("New")
+        def menuItemNewFile = new MenuItem("File")
+        menuItemNewFile.setOnAction({ event ->
+            onNewFile()
+        })
+        def menuItemNewFolder = new MenuItem("Folder")
+        menuItemNewFolder.setOnAction({ event ->
+            onNewFolder()
+        })
+//        menuItemNew.setOnShowing({ event ->
+//            println "setOnShowing: $event"
+//        })
+//        menuItemNew.setOnMenuValidation({ event ->
+//            (event.source as Menu).visible = false
+//            println "setOnMenuValidation: $event"
+//        })
+        menuItemNew.items.addAll(menuItemNewFile, menuItemNewFolder)
+        contextMenuTable.items << menuItemNew
+
+        def menuItemPaste = getContextMenuPaste(currentPath)
+        menuItemPaste.visibleProperty().bind(pastable)
+        contextMenuTable.items << menuItemPaste
+
+        contextMenuTable.setOnShowing({ event ->
+            pastable.set(clipboardService.hasContentPastable())
+        })
         fileList.contextMenu = contextMenuTable
 
         fileList.setRowFactory({ tableView ->
@@ -116,7 +147,7 @@ class MainWindowController implements Initializable {
             contextMenuRow.width = 300d
             contextMenuRow.style = '-fx-pref-width: 200'
 
-            row.contextMenu = contextMenuRow
+//            row.contextMenu = contextMenuRow
 
 //            row.emptyProperty().addListener({ obs, wasEmpty, isNowEmpty ->
 //                println "empty: $row.index / $isNowEmpty"
@@ -124,10 +155,16 @@ class MainWindowController implements Initializable {
 //            } as ChangeListener)
 
             def basePath = Paths.get(addressBar.text)
-            updateMenu(contextMenuRow, basePath, row.item as PathItem)
+            updateMenu(tableView, contextMenuRow, basePath, row.item as PathItem)
             row.itemProperty().addListener({ obs, PathItem oldItem, PathItem newItem ->
-                updateMenu(contextMenuRow, Paths.get(addressBar.text), row.item as PathItem)
+                updateMenu(tableView, contextMenuRow, Paths.get(addressBar.text), row.item as PathItem)
             } as ChangeListener)
+
+            row.contextMenuProperty().bind(
+                    Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                            .then(contextMenuRow)
+                            .otherwise((ContextMenu)null)
+            )
 
             return row
         })
@@ -154,7 +191,7 @@ class MainWindowController implements Initializable {
         }
     }
 
-    private void updateMenu(ContextMenu contextMenu, Path basePath, PathItem item) {
+    private void updateMenu(TableView tableView, ContextMenu contextMenu, Path basePath, PathItem item) {
         def itemPath = item ? Paths.get(addressBar.text).resolve(item.name) : null
         contextMenu.items.clear()
         if(item) {
@@ -166,6 +203,22 @@ class MainWindowController implements Initializable {
                 contextMenu.items << menuItemOpen
             }
 
+            def menuItemCopy = new MenuItem("Copy")
+            menuItemCopy.setOnAction({ event ->
+                clipboardService.copy([itemPath])
+                reload(basePath)
+//                addContextMenuPaste(basePath)
+            })
+            contextMenu.items << menuItemCopy
+
+            def menuItemCut = new MenuItem("Cut")
+            menuItemCut.setOnAction({ event ->
+                clipboardService.cut([itemPath])
+                reload(basePath)
+//                addContextMenuPaste(basePath)
+            })
+            contextMenu.items << menuItemCut
+
             def menuItemDelete = new MenuItem("Delete")
             menuItemDelete.setOnAction({ event ->
                 Files.deleteIfExists(itemPath)
@@ -173,18 +226,30 @@ class MainWindowController implements Initializable {
             })
             contextMenu.items << menuItemDelete
         } else {
-            def menuItemNew = new Menu("New")
-            def menuItemNewFile = new MenuItem("File")
-            menuItemNewFile.setOnAction({ event ->
-                onNewFile()
-            })
-            def menuItemNewFolder = new MenuItem("Folder")
-            menuItemNewFolder.setOnAction({ event ->
-                onNewFolder()
-            })
-            menuItemNew.items.addAll(menuItemNewFile, menuItemNewFolder)
-            contextMenu.items << menuItemNew
+//            def menuItemNew = new Menu("New")
+//            def menuItemNewFile = new MenuItem("File")
+//            menuItemNewFile.setOnAction({ event ->
+//                onNewFile()
+//            })
+//            def menuItemNewFolder = new MenuItem("Folder")
+//            menuItemNewFolder.setOnAction({ event ->
+//                onNewFolder()
+//            })
+//            menuItemNew.items.addAll(menuItemNewFile, menuItemNewFolder)
+//            contextMenu.items << menuItemNew
         }
+
+        contextMenu.items << new SeparatorMenuItem()
+        contextMenu.items << getContextMenuPaste(basePath)
+    }
+
+    private MenuItem getContextMenuPaste(Path basePath) {
+        def menuItemPaste = new MenuItem("Paste")
+        menuItemPaste.setOnAction({ event ->
+            clipboardService.paste(basePath)
+            reload(basePath)
+        })
+        return menuItemPaste
     }
 
     private void openFile(Path path) {
