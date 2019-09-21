@@ -2,17 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="064d3b3d-6479-4478-ad07-fdcff578aeb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/DefaultPathViewContextMenuController.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/PathService.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/PathView.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/PathViewContextMenuController.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/gridView/GridView.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/gridView/gridView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/tableView/TableView.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/tableView/tableView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/main/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/main/Main.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/ClipboardService.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/services/ClipboardService.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/mainWindow/MainWindowController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/mainWindow/MainWindowController.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/mainWindow/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/mainWindow/main-window.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -48,7 +69,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/gridView" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -58,23 +79,24 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/views/fileView/gridView" />
+      <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers" />
+      <recent name="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ericsantanna.filemanager.controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/newFolder" />
       <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/newFile" />
       <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/mainWindow" />
       <recent name="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
       <recent name="$PROJECT_DIR$/gui/src/main/java" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.ericsantanna.filemanager.controllers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/gui/src/main/groovy/com/ericsantanna/filemanager/controllers" />
-      <recent name="$PROJECT_DIR$/gui/src/main/resources/fxml/mainWindow" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -121,9 +143,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ericsantanna.filemanager.main.MainJava" />
+      <module name="gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ericsantanna.filemanager.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainJava" />
         <item itemvalue="Application.Daemon" />
       </list>
     </recent_temporary>
@@ -145,7 +181,10 @@
       <workItem from="1566333338736" duration="4832000" />
       <workItem from="1566651730609" duration="609000" />
       <workItem from="1566652364725" duration="36265000" />
-      <workItem from="1566856725826" duration="9857000" />
+      <workItem from="1566856725826" duration="10062000" />
+      <workItem from="1566939472974" duration="7487000" />
+      <workItem from="1568671940444" duration="652000" />
+      <workItem from="1569006826847" duration="16088000" />
     </task>
     <task id="LOCAL-00001" summary="Added modified column">
       <created>1564689787314</created>
@@ -189,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566696439940</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Testing property binding for selecting context menu items">
+      <created>1566867330032</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566867330032</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +263,8 @@
     <MESSAGE value="gitignore target" />
     <MESSAGE value="Changes in clipboard operations" />
     <MESSAGE value="Changed structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed structure" />
+    <MESSAGE value="Testing property binding for selecting context menu items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing property binding for selecting context menu items" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

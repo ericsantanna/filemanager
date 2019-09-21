@@ -1,276 +1,135 @@
 package com.ericsantanna.filemanager.views.mainWindow
 
 import com.ericsantanna.filemanager.controllers.FileListingTask
+import com.ericsantanna.filemanager.models.PathItem
+import com.ericsantanna.filemanager.services.*
+import com.ericsantanna.filemanager.utils.FxmlUtils
 import com.ericsantanna.filemanager.views.newFile.NewFileController
 import com.ericsantanna.filemanager.views.newFolder.NewFolderController
-import com.ericsantanna.filemanager.models.PathItem
-import com.ericsantanna.filemanager.services.ClipboardService
-import com.ericsantanna.filemanager.utils.FxmlUtils
-import javafx.beans.binding.Bindings
-import javafx.beans.property.BooleanProperty
-import javafx.beans.property.SimpleBooleanProperty
+import javafx.beans.property.ObjectProperty
+import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.value.ChangeListener
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.Scene
-import javafx.scene.control.*
-import javafx.scene.control.cell.PropertyValueFactory
+import javafx.scene.control.Label
+import javafx.scene.control.ListView
+import javafx.scene.control.ProgressBar
+import javafx.scene.control.ScrollPane
+import javafx.scene.control.TableView
+import javafx.scene.control.TextField
+import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.scene.input.*
+import javafx.scene.layout.FlowPane
+import javafx.scene.layout.Pane
+import javafx.scene.layout.TilePane
 import javafx.stage.Modality
 import javafx.stage.Stage
+import javafx.util.Callback
+import org.controlsfx.control.GridCell
+import org.controlsfx.control.GridView
+import org.controlsfx.control.cell.ImageGridCell
 
-import java.awt.*
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.List
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class MainWindowController implements Initializable {
     @FXML private TextField addressBar
     @FXML private ScrollPane fileView
-    @FXML private TableView fileList
-    @FXML private ProgressBar prgsBarMain
+//    @FXML private TableView fileList
+    @FXML private GridView<PathItem> gridView
+    @FXML private ProgressBar progressBarMain
 
     final ClipboardService clipboardService = new ClipboardService()
+    PathService pathService
+    PathViewContextMenuController pathViewContextMenuController
+    PathView pathView
 
     private final ObservableList<PathItem> data = FXCollections.observableArrayList()
     private ExecutorService executorService = Executors.newFixedThreadPool(4)
-    private ContextMenu contextMenuTable
-    private BooleanProperty pastable = new SimpleBooleanProperty(false)
+
+    private ObjectProperty<Path> pathProperty = new SimpleObjectProperty<>()
 
     @FXML
     void initialize(URL location, ResourceBundle resources) {
 //        String homeDir = System.getProperty("user.home");
         String homeDir = "/tmp/filemanager"
+        Path currentPath = Paths.get(homeDir)
 
-        addressBar.setText(homeDir)
+        Files.createDirectories(currentPath)
 
-        Path currentPath = Paths.get(addressBar.text)
+        pathProperty.addListener({ observableValue, oldValue, newValue ->
+            addressBar.text = newValue.toString()
+            reload(newValue)
+        } as ChangeListener<Path>)
+
+        pathProperty.set(currentPath)
         data.clear()
         FileListingTask fileListingTask = new FileListingTask(currentPath, data)
-        prgsBarMain.progressProperty().bind(fileListingTask.progressProperty())
+        progressBarMain.progressProperty().bind(fileListingTask.progressProperty())
 
-        TableColumn iconColumn = new TableColumn("Icon")
-        iconColumn.setMaxWidth(500)
-        TableColumn nameColumn = new TableColumn("Name")
-        TableColumn sizeColumn = new TableColumn("Size")
-        sizeColumn.setMaxWidth(900)
-        TableColumn modifiedColumn = new TableColumn("Modified")
-        modifiedColumn.setMaxWidth(1000)
-
-        fileList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE)
-
-        fileList.setOnKeyPressed({ keyEvent ->
-            def selectedItems = fileList.getSelectionModel().getSelectedItems()
-            def paths = selectedItems.collect { i -> (i as PathItem).path } as List<Path>
-
-            def ctrlC = new KeyCodeCombination(KeyCode.C, KeyCodeCombination.CONTROL_DOWN)
-            if (ctrlC.match(keyEvent)) {
-                clipboardService.copy(paths)
-                keyEvent.consume()
-            }
-
-            def ctrlX = new KeyCodeCombination(KeyCode.X, KeyCodeCombination.CONTROL_DOWN)
-            if (ctrlX.match(keyEvent)) {
-                clipboardService.cut(paths)
-                keyEvent.consume()
-            }
-
-            def ctrlV = new KeyCodeCombination(KeyCode.V, KeyCodeCombination.CONTROL_DOWN)
-            if (ctrlV.match(keyEvent)) {
-                clipboardService.paste(currentPath)
-                keyEvent.consume()
-            }
+        addressBar.setOnAction({ event ->
+            pathProperty.set(Paths.get(addressBar.text))
         })
 
-        contextMenuTable = new ContextMenu()
-        contextMenuTable.minWidth = 300d
-        contextMenuTable.prefWidth = 500
-        contextMenuTable.width = 300d
-        contextMenuTable.style = '-fx-pref-width: 200'
-//        updateMenu(contextMenuTable, null, Paths.get(addressBar.text), null)
-        def menuItemNew = new Menu("New")
-        def menuItemNewFile = new MenuItem("File")
-        menuItemNewFile.setOnAction({ event ->
-            onNewFile()
-        })
-        def menuItemNewFolder = new MenuItem("Folder")
-        menuItemNewFolder.setOnAction({ event ->
-            onNewFolder()
-        })
-//        menuItemNew.setOnShowing({ event ->
-//            println "setOnShowing: $event"
-//        })
-//        menuItemNew.setOnMenuValidation({ event ->
-//            (event.source as Menu).visible = false
-//            println "setOnMenuValidation: $event"
-//        })
-        menuItemNew.items.addAll(menuItemNewFile, menuItemNewFolder)
-        contextMenuTable.items << menuItemNew
 
-        def menuItemPaste = getContextMenuPaste(currentPath)
-        menuItemPaste.visibleProperty().bind(pastable)
-        contextMenuTable.items << menuItemPaste
+//        pathService = new PathService()
+//        pathViewContextMenuController = new DefaultPathViewContextMenuController(this, clipboardService, pathService)
+//        pathView = new com.ericsantanna.filemanager.views.fileView.tableView.TableView(fileList, clipboardService, data, pathProperty, pathViewContextMenuController, pathService)
 
-        contextMenuTable.setOnShowing({ event ->
-            pastable.set(clipboardService.hasContentPastable())
-        })
-        fileList.contextMenu = contextMenuTable
-
-        fileList.setRowFactory({ tableView ->
-            def row = new TableRow()
-            row.setOnMouseClicked({ event ->
-                def item = row.item as PathItem
-                if(!item) {
-                    return
+//        def a = new ListView<PathItem>()
+//        a.setCellFactory({new ListView<PathItem>() {}})
+        gridView.setCellFactory({ p ->
+            new GridCell<PathItem>() {
+                @Override
+                protected void updateItem(PathItem item, boolean empty) {
+                    super.updateItem(item, empty)
+                    setGraphic(empty ? null : item.getIcon())
                 }
-                def itemPath = item ? Paths.get(addressBar.text).resolve(item.name) : null
-                if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
-                    if(Files.isDirectory(itemPath)) {
-                        addressBar.setText(itemPath.toString())
-                        addressBar.fireEvent(new ActionEvent())
-                    } else {
-                        openFile(itemPath)
-                    }
-                }
-            })
-
-            def contextMenuRow = new ContextMenu()
-            contextMenuRow.minWidth = 300d
-            contextMenuRow.prefWidth = 500
-            contextMenuRow.width = 300d
-            contextMenuRow.style = '-fx-pref-width: 200'
-
-//            row.contextMenu = contextMenuRow
-
-//            row.emptyProperty().addListener({ obs, wasEmpty, isNowEmpty ->
-//                println "empty: $row.index / $isNowEmpty"
-//                updateMenu(contextMenuRow, basePath, row.item as PathItem)
-//            } as ChangeListener)
-
-            def basePath = Paths.get(addressBar.text)
-            updateMenu(tableView, contextMenuRow, basePath, row.item as PathItem)
-            row.itemProperty().addListener({ obs, PathItem oldItem, PathItem newItem ->
-                updateMenu(tableView, contextMenuRow, Paths.get(addressBar.text), row.item as PathItem)
-            } as ChangeListener)
-
-            row.contextMenuProperty().bind(
-                    Bindings.when(Bindings.isNotNull(row.itemProperty()))
-                            .then(contextMenuRow)
-                            .otherwise((ContextMenu)null)
-            )
-
-            return row
-        })
-
-        iconColumn.cellValueFactory = new PropertyValueFactory<PathItem, ImageView>("icon")
-        nameColumn.cellValueFactory = new PropertyValueFactory<PathItem, String>("name")
-        sizeColumn.cellValueFactory = new PropertyValueFactory<PathItem, String>("size")
-        modifiedColumn.cellValueFactory = new PropertyValueFactory<PathItem, String>("modified")
-        fileList.columns.addAll(iconColumn, nameColumn, sizeColumn, modifiedColumn)
-
-        fileList.items = data
-
-        try {
-            addressBar.setOnAction({ event ->
-                try {
-                    reload(Paths.get(addressBar.text))
-                } catch (Exception e) {
-                    e.printStackTrace()
-                }
-            })
-            reload(Paths.get(addressBar.text))
-        } catch (Exception e) {
-            e.printStackTrace()
-        }
-    }
-
-    private void updateMenu(TableView tableView, ContextMenu contextMenu, Path basePath, PathItem item) {
-        def itemPath = item ? Paths.get(addressBar.text).resolve(item.name) : null
-        contextMenu.items.clear()
-        if(item) {
-            if(!Files.isDirectory(item.path)) {
-                def menuItemOpen = new MenuItem("Open")
-                menuItemOpen.setOnAction({ event ->
-                    openFile(basePath.resolve(item.name))
-                })
-                contextMenu.items << menuItemOpen
             }
+        } as Callback<GridView<PathItem>, GridCell<PathItem>>)
 
-            def menuItemCopy = new MenuItem("Copy")
-            menuItemCopy.setOnAction({ event ->
-                clipboardService.copy([itemPath])
-                reload(basePath)
-//                addContextMenuPaste(basePath)
-            })
-            contextMenu.items << menuItemCopy
-
-            def menuItemCut = new MenuItem("Cut")
-            menuItemCut.setOnAction({ event ->
-                clipboardService.cut([itemPath])
-                reload(basePath)
-//                addContextMenuPaste(basePath)
-            })
-            contextMenu.items << menuItemCut
-
-            def menuItemDelete = new MenuItem("Delete")
-            menuItemDelete.setOnAction({ event ->
-                Files.deleteIfExists(itemPath)
-                reload(basePath)
-            })
-            contextMenu.items << menuItemDelete
-        } else {
-//            def menuItemNew = new Menu("New")
-//            def menuItemNewFile = new MenuItem("File")
-//            menuItemNewFile.setOnAction({ event ->
-//                onNewFile()
-//            })
-//            def menuItemNewFolder = new MenuItem("Folder")
-//            menuItemNewFolder.setOnAction({ event ->
-//                onNewFolder()
-//            })
-//            menuItemNew.items.addAll(menuItemNewFile, menuItemNewFolder)
-//            contextMenu.items << menuItemNew
-        }
-
-        contextMenu.items << new SeparatorMenuItem()
-        contextMenu.items << getContextMenuPaste(basePath)
+        gridView.items = tiles
     }
-
-    private MenuItem getContextMenuPaste(Path basePath) {
-        def menuItemPaste = new MenuItem("Paste")
-        menuItemPaste.setOnAction({ event ->
-            clipboardService.paste(basePath)
-            reload(basePath)
-        })
-        return menuItemPaste
-    }
-
-    private void openFile(Path path) {
-        if(Desktop.isDesktopSupported()) {
-            new Thread({
-                try {
-                    Desktop.getDesktop().open(path.toFile())
-                } catch (IOException e) {
-                    e.printStackTrace()
-                }
-            }).start()
-        } else {
-            System.err.println("Desktop not supported")
-        }
-    }
-
+    private final ObservableList<PathItem> tiles = FXCollections.observableArrayList()
+    int count = 0
     @FXML
     void onUp() {
-        Path path = Paths.get(addressBar.getText()).getParent()
-        addressBar.setText(path.toString())
-        addressBar.fireEvent(new ActionEvent())
+//        Path parent = pathProperty.get().getParent()
+//        pathProperty.set(parent)
+        def image = new Image(getClass().getResource("/fxml/images/txt.jpeg").toString())
+        def label = new ImageView(image)
+//        label.fitHeight = 80
+//        label.fitWidth = 80
+//        label.preserveRatio = true
+////        gridView.prefHeight = 80
+////        gridView.prefWidth = 80
+////        label.minWidth(100)
+////        label.minHeight(100)
+////        label.maxWidth(150)
+////        label.maxHeight(150)
+//        if(count == 0) {
+//            label.style = '-fx-background-color: #F00;'
+////            label.text = 'Label ' + count
+//            count++
+//        } else if(count == 1) {
+//            label.style = '-fx-background-color: #0F0;'
+////            label.text = 'Label ' + count
+//            count++
+//        } else {
+//            label.style = '-fx-background-color: #00F;'
+////            label.text = 'Label ' + count
+//            count = 0
+//        }
+
+        def pi = new PathItem(image, null, 0, null)
+        tiles << pi
+//        gridView.children.add(label)
     }
 
     @FXML
@@ -284,11 +143,11 @@ class MainWindowController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL)
 
         def controller = fxml.controller as NewFolderController
-        controller.currentPath = Paths.get(addressBar.getText())
+        controller.currentPath = pathProperty.get()
 
         stage.showAndWait()
 
-        reload(Paths.get(addressBar.text))
+        reload(pathProperty.get())
     }
 
     @FXML
@@ -302,16 +161,16 @@ class MainWindowController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL)
 
         def controller = fxml.controller as NewFileController
-        controller.currentPath = Paths.get(addressBar.getText())
+        controller.currentPath = pathProperty.get()
 
         stage.showAndWait()
 
-        reload(Paths.get(addressBar.text))
+        reload(pathProperty.get())
     }
 
     void reload(Path path) throws Exception {
         def fileListingTask = new FileListingTask(path, data)
-        prgsBarMain.progressProperty().bind(fileListingTask.progressProperty())
+        progressBarMain.progressProperty().bind(fileListingTask.progressProperty())
         executorService.submit(fileListingTask)
     }
 }

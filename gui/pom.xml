@@ -17,5 +17,10 @@
             <artifactId>groovy-all</artifactId>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>8.40.15</version>
+        </dependency>
     </dependencies>
 </project>
